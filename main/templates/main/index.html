@@ -1,7 +1,6 @@
-{% extends "main/layout.html" %} {% block body %} {% load static %}
-
-<div class="welcome-text">
-  <h1 style="margin-top: 0">Welcome</h1>
-</div>
-
+{% extends "main/layout.html" %} {% block body %} {% load static %} 
+{% if user.is_authenticated %}
+<a href="logout" id="logout-link">登出</a>
+<iframe src="http://127.0.0.1:7860" width="100%" height="600"></iframe>
+{% endif %} 
 {% endblock %}

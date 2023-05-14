@@ -1,0 +1,35 @@
+{% extends "main/layout.html" %} 
+{% load static %}
+
+{% block body %}
+
+
+<main class="form-signin w-100 m-auto">
+  <form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <h1 class="h3 mb-3 fw-normal">请登录</h1>
+    <div class="form-floating">
+      <input
+        class="form-control"
+        id="floatingInput"
+        value="WeiWei"
+        name="username"
+        readonly
+      />
+      <label for="floatingInput">用户名</label>
+    </div>
+    <div class="form-floating">
+      <input
+        type="password"
+        class="form-control"
+        id="floatingPassword"
+        name="password"
+        placeholder="Password"
+      />
+      <label for="floatingPassword">密码</label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">登陆</button>
+  </form>
+</main>
+
+{% endblock %}
