@@ -2,7 +2,7 @@
 <div id="chat-container">
   <form action="/" method="POST" id="user-prompt-form">
     {% csrf_token %}
-    <textarea id="user-prompt" placeholder="请输入您的提示" name="user-prompt"></textarea>
+    <textarea id="user-prompt" placeholder="请输入您的指令" name="user-prompt"></textarea>
     <button type="submit" id="send-chat-btn" class="w-100 btn btn-lg btn-primary">发送</button>
   </form>
   <div id="response"></div>

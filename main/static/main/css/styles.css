@@ -114,6 +114,10 @@ h1 {
     align-items: center;
   }
 
+  #title {
+    margin-top: 15%;
+  }
+
   #user-prompt-form,
   #user-prompt,
   #send-chat-btn,

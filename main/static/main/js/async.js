@@ -1,3 +1,4 @@
+// Handle user submit chat form.
 const userOnSubmit = () => {
     let submitButton = document.getElementById("send-chat-btn");
 
@@ -5,13 +6,17 @@ const userOnSubmit = () => {
         event.preventDefault();
         let responseDiv = document.getElementById("response");
 
-        let promise = await fetchResponse(document.getElementById("user-prompt").value);
-        if (promise) {
-            // populate response section
-            responseDiv.innerHTML += "<span class='ai-span'>AI助理: </span>";
-            responseDiv.innerHTML += promise.response.replaceAll("\n", "<br>");
-            responseDiv.innerHTML += "<br><br>";
+        let input = document.getElementById("user-prompt");
+        if (input.value.trim() === '') {
+            return
         }
+        let value = input.value;
+        input.value = "";
+        let promise = await fetchResponse(value);
+        // populate response section
+        responseDiv.innerHTML += "<span class='ai-span'>AI助理: </span>";
+        responseDiv.innerHTML += promise.response.replaceAll("\n", "<br>");
+        responseDiv.innerHTML += "<br><br>";
     }
 
     submitButton.addEventListener("click", action);
@@ -20,6 +25,7 @@ const userOnSubmit = () => {
 
 userOnSubmit()
 
+// get response from openai based on user prompt.
 function fetchResponse(user_prompt) {
     const csrftoken = document.querySelector("[name='csrfmiddlewaretoken']").value;
 
@@ -55,3 +61,22 @@ function fetchResponse(user_prompt) {
             loadingDiv.style.display = "none";
         });
 }
+
+// Get the input field and button
+const userInput = document.getElementById('user-prompt');
+const sendButton = document.getElementById('send-chat-btn');
+
+// Function to enable/disable button based on input value
+const checkInput = () => {
+    if (userInput.value.trim() === '') {
+        sendButton.disabled = true;
+    } else {
+        sendButton.disabled = false;
+    }
+};
+
+// Initialize the button state
+checkInput();
+
+// Attach the event listener to the input field
+userInput.addEventListener('input', checkInput);
