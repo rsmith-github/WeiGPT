@@ -32,8 +32,9 @@ function fetchResponse(user_prompt) {
     // Get loading element and show it
     let loadingDiv = document.createElement("div");
     loadingDiv.innerHTML = "<img src='static/main/loading.gif' style='width: 50px;'/>"
-
-    document.getElementById("response").append(loadingDiv)
+    let responseDiv = document.getElementById("response");
+    responseDiv.append(loadingDiv);
+    responseDiv.scrollTop = responseDiv.scrollHeight;
 
     return fetch("/", {
         method: "POST",
