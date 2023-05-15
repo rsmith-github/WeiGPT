@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <title>{% block title %}WeiGPT{% endblock %}</title>
-    <link href="{% static 'main/styles.css' %}" rel="stylesheet" />
+    <link href="{% static 'main/css/styles.css' %}" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto+Slab|Roboto:300,400,500,700"
@@ -15,9 +15,18 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
+  <body class="dark">
+    {% if user.is_authenticated %}
+      <h1>韦唯私人AI助理</h1>
+    {% endif %}
 
-  <body>
-    <div class="body">{% block body %} {% endblock %}</div>
+    {% block body %} {% endblock %} 
+    
+    {% if user.is_authenticated %}
+      <a href="logout" id="logout-link">登出</a>
+    {% endif %}
   </body>
+  <script src="{% static 'main/js/async.js' %}"></script>
 </html>
