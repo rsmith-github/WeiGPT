@@ -17,12 +17,12 @@ const userOnSubmit = () => {
         responseDiv.innerHTML += "<span class='ai-span'>AI助理: </span>";
         responseDiv.innerHTML += promise.response.replaceAll("\n", "<br>");
         responseDiv.innerHTML += "<br><br>";
+        responseDiv.scrollTop = responseDiv.scrollHeight;
     }
 
     submitButton.addEventListener("click", action);
     submitButton.addEventListener("touchstart", action);
 }
-
 userOnSubmit()
 
 // get response from openai based on user prompt.

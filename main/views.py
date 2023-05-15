@@ -18,12 +18,17 @@ starting_prompt = f"You are ChatGPT, a large language model trained by OpenAI. A
 messages = [
     {"role": "system", "content": starting_prompt},
     {"role": "user", "content": "Who are you?"},
-    {"role": "assistant", "content": "我是您的私人AI助理！"},
+    {"role": "assistant", "content": "我是您的私人AI助理!"},
     {"role": "user", "content": "很高兴认识！"},
     {"role": "assistant", "content": "彼此！"},
+    {"role": "user", "content": "你知道我是谁吗？"},
+    {"role": "assistant", "content": "我当让知道您是谁！您是著名歌唱家韦唯。很高兴为您服务。"},
+
 ]
 
 # Get AI response based on user prompt using model gpt-3.5-turbo.
+
+
 def generate_responses(user_prompt):
     messages.append({"role": "user", "content": user_prompt})
     # get response
