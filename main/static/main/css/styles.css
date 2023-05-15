@@ -71,6 +71,7 @@ body {
   margin-bottom: 20px;
   resize: none;
   padding: 10px;
+  border-radius: 20px;
 }
 
 #chat-container {
