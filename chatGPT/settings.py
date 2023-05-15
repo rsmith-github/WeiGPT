@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-==_5gu3^tpf2#d8%fgvuv=)9lq-^!0z1y&fbwxhmhluf0!zlud
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://fierce-dusk-76840.herokuapp.com', 'https://fierce-dusk-76840.herokuapp.com', 'fierce-dusk-76840.herokuapp.com']
+ALLOWED_HOSTS = ['http://fierce-dusk-76840.herokuapp.com', 'https://fierce-dusk-76840.herokuapp.com', 'fierce-dusk-76840.herokuapp.com', 'localhost']
 
 # Application definition
 INSTALLED_APPS = [
@@ -46,6 +46,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'chatGPT.urls'
@@ -119,10 +120,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# Whitenoise configuration
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
