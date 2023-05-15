@@ -54,8 +54,6 @@ def index(request):
     return render(request, "main/index.html")
 
 # User login
-
-
 def login_view(request):
     if request.method == "POST":
         # Attempt to sign user in
@@ -75,8 +73,6 @@ def login_view(request):
         return render(request, "main/login.html")
 
 # User logout
-
-
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse("index"))
