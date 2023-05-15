@@ -64,6 +64,12 @@ body {
   width: 80% !important;
 }
 
+#send-chat-btn:active {
+  background-color: #f9741681;
+  border-color: rgba(255, 255, 255, 0.675) !important;
+  transform: scale(0.95); /* slight shrinking effect */
+}
+
 #user-prompt {
   width: 80%;
   height: 80px;
